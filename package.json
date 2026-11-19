@@ -1,0 +1,39 @@
+{
+  "name": "chit-fund-app",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "ChitBook - a chit fund management system (DBMS project): PostgreSQL + Hono API + React",
+  "scripts": {
+    "dev": "concurrently -n api,web -c blue,green \"node --watch server/index.ts\" \"vite\"",
+    "db:reset": "node server/reset.ts",
+    "build": "vite build",
+    "start": "node server/index.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@electric-sql/pglite": "^0.5.16",
+    "@hono/node-server": "^2.1.9",
+    "hono": "^4.13.19",
+    "pg": "^8.23.1",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-router": "^8.5.1",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.5",
+    "@types/node": "^26.6.6",
+    "@types/pg": "^8.23.1",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.3.0",
+    "concurrently": "^10.0.7",
+    "tailwindcss": "^4.3.5",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.8"
+  },
+  "engines": {
+    "node": ">=24"
+  }
+}

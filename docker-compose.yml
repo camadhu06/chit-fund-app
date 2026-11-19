@@ -1,0 +1,23 @@
+# Optional: run a full PostgreSQL 17 server + pgAdmin instead of the built-in PGlite.
+#   docker compose up -d
+#   then start the app with DATABASE_URL set (see README)
+services:
+  db:
+    image: postgres:17
+    environment:
+      POSTGRES_USER: chit
+      POSTGRES_PASSWORD: chit
+      POSTGRES_DB: chitfund
+    ports: ["5432:5432"]
+    volumes: [pgdata:/var/lib/postgresql/data]
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports: ["5050:80"]
+    depends_on: [db]
+
+volumes:
+  pgdata:
